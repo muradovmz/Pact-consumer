@@ -80,7 +80,7 @@ namespace tests
         {
             pact
                 .UponReceiving("a request to retrieve a product with existing id")
-                .WithRequest(HttpMethod.Get, "/Products/27")
+                .WithRequest(HttpMethod.Get, "/Products/28")
                 .WillRespond()
                 .WithStatus(System.Net.HttpStatusCode.OK)
                 .WithHeader("Content-Type", "application/json; charset=utf-8")
