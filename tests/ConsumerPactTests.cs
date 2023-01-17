@@ -54,9 +54,9 @@ namespace tests
                 .WithHeader("Content-Type", "application/json; charset=utf-8")
                 .WithJsonBody(Match.MinType(new
                 {
-                    id = 27,
+                    id = 28,
                     name = "burger",
-                    type = "food",
+                    type = "DINNER",
                     ragaca = "123"
                 }, 1));
 
@@ -86,9 +86,9 @@ namespace tests
                 .WithHeader("Content-Type", "application/json; charset=utf-8")
                 .WithJsonBody(new
                 {
-                    id = Match.Type(27),
+                    id = Match.Type(28),
                     name = Match.Type("burger"),
-                    type = Match.Type("food"),
+                    type = Match.Type("DINNER"),
                     ragaca = Match.Type("123")
                 });
 
@@ -96,7 +96,7 @@ namespace tests
             await pact.VerifyAsync(async ctx =>
             {
                 var client = new ProductClient();
-                var product = await client.GetProduct(ctx.MockServerUri.AbsoluteUri, 27, null);
+                var product = await client.GetProduct(ctx.MockServerUri.AbsoluteUri, 28, null);
 
                 //Assert
                 Assert.IsType<int>(product.id);
