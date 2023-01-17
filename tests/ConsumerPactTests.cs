@@ -56,7 +56,8 @@ namespace tests
                 {
                     id = 27,
                     name = "burger",
-                    type = "food"
+                    type = "food",
+                    ragaca = "123"
                 }, 1));
 
             //Act
@@ -69,6 +70,7 @@ namespace tests
                 Assert.IsType<int>(products[0].id);
                 Assert.IsType<string>(products[0].name);
                 Assert.IsType<string>(products[0].type);
+                Assert.IsType<string>(products[0].ragaca);
             });
             //the mock server is no longer running once VerifyAsync returns
         }
@@ -86,7 +88,8 @@ namespace tests
                 {
                     id = Match.Type(27),
                     name = Match.Type("burger"),
-                    type = Match.Type("food")
+                    type = Match.Type("food"),
+                    ragaca = Match.Type("123")
                 });
 
             //Act
@@ -99,6 +102,7 @@ namespace tests
                 Assert.IsType<int>(product.id);
                 Assert.IsType<string>(product.name);
                 Assert.IsType<string>(product.type);
+                Assert.IsType<string>(product.ragaca);
             });
         }
 
